@@ -21,11 +21,11 @@ class Palindrome extends Component{
         var reverse = input.split('').reverse().join('');
         if (input == reverse){
             this.setState({
-                palindrome: true
+                palindrome: 'true'
             })
         }else{
             this.setState({
-                palindrome: false
+                palindrome: 'false'
             })
         }
     }
