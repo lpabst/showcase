@@ -35,7 +35,7 @@ class Palindrome extends Component{
             <div className="puzzleBox filterStringPB">
                 <h4>Palindrome</h4>
                 <input className="inputLine" onChange={ (e) => this.updateUserInput(e.target.value) } />
-                <button className="confirmationButton" onClick={ () => this.isPalindrome() }>Filter List</button>
+                <button className="confirmationButton" onClick={ () => this.isPalindrome() }>Check Word</button>
                 <span className="resultsBox">This is a palindrome: {this.state.palindrome}</span>
             </div>  
         );
