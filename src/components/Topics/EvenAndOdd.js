@@ -6,9 +6,9 @@ class EvenAndOdd extends Component{
         super();
 
         this.state = {
-            evenArray = [],
-            oddArray = [],
-            userInput = ''
+            evenArray: [],
+            oddArray: [],
+            userInput: ''
         }
     }
 
@@ -19,7 +19,21 @@ class EvenAndOdd extends Component{
     }
 
     solveToyProblem = () => {
+        var arr = this.state.userInput.split(',');
+        var evens = [];
+        var odds = [];
+        for (var i = arr.length - 1; i >= 0; i --){
+            if (arr[i] % 2 === 0){
+                evens.push(arr[i])
+            } else if (arr[i] % 2 === 1){
+                odds.push(arr[i])
+            }
+        }
 
+        this.setState({
+            evenArray: evens,
+            oddArray: odds
+        })
     }
 
     render(){
@@ -27,9 +41,9 @@ class EvenAndOdd extends Component{
             <div className='puzzleBox evenAndOddPB'>   
                 <h4>Evens and Odds</h4>
                 <input className='inputLine' onChange={ (e) => this.updateUserInput(e.target.value) } />
-                <button className='confirmationButton' onClick={ () => this.solveToyProblem() }></button>
-                <span className='resultsBox'>{ this.state.evenArray }</span>
-                <span className='resultsBox'>{ this.state.oddArray }</span>
+                <button className='confirmationButton' onClick={ () => this.solveToyProblem() }>Split</button>
+                <span className='resultsBox'>Evens: { JSON.stringify(this.state.evenArray) } </span>
+                <span className='resultsBox'>Odds: { JSON.stringify(this.state.oddArray) } </span>
             </div>
         );
     }
